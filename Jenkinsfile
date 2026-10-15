@@ -1,27 +1,33 @@
 pipeline {
-agent any
-stages {
-stage('Checkout') {
-steps {
-echo 'Checking out source code...'
-}
-}
-stage('Build') {
-steps {
-echo 'Building the application...'
-}
-}
-stage('Test') {
-steps {
-echo 'Testing the application...'
-echo 'All tests passed successfully!'
-}
-}
-stage('Deploy') {
-steps {
-echo 'Deploying application...'
-echo 'Application deployed successfully!'
-}
-}
-}
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+             
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building the application...'
+               
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application...'
+                
+            }
+        }
+    }
 }
